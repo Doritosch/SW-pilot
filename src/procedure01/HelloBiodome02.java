@@ -4,13 +4,17 @@ public class HelloBiodome02 {
     private static final int MIN_PRODUCTION = 0;
     private static final int MAX_PRODUCTION = 30000;
     public static void main(String[] args) {
-        int solar = 0;
-        int wind = 0;
-        int earth = 0;
         if (args.length == 0) {
             System.out.print("에너지 생산량을 입력해주세요.");
             return;
         }
+        if (args.length != 3) {
+            System.out.print("에너지 생산량 3개를 입력해주세요.");
+            return;
+        }
+        int solar = 0;
+        int wind = 0;
+        int earth = 0;
 
         try {
             solar = Integer.parseInt(args[0]);
@@ -27,7 +31,12 @@ public class HelloBiodome02 {
         }
 
         int sum = solar + wind + earth;
-        String message = String.format("총 에너지 사용량은 " + sum + "입니다.");
+        if (sum == 0) {
+            System.out.print("총 에너지 생산량은 0입니다.");
+            return;
+        }
+
+        String message = String.format("총 에너지 사용량은 %d 입니다.", sum);
         System.out.println(message);
 
         double solarPercent = (double) solar / sum * 100;
