@@ -29,20 +29,18 @@ public class HelloBiodome03 {
         if (h == 0) {
             return 0;
         }
-
-        double n = h / 2;
-        double diff;
-        while(true) {
-            n = (n + h / n) / 2;
-            diff = n * n - h;
-            if (diff < 0) {
-                diff = -diff;
-            }
-            if (diff < 1e-10) {
-                break;
-            }
+        return getRootHelper(h, h / 2.0);
+    }
+    private static double getRootHelper(double h, double guess) {
+        double n = (guess + h / guess) / 2;
+        double diff = n * n - h;
+        if (diff < 0) {
+            diff = -diff;
         }
-        return n;
+        if (diff < 1e-10) {
+            return n;
+        }
+        return getRootHelper(h, n);
     }
     private static double getAbs(double t) {
         if (t < 0) {
