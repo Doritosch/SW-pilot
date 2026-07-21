@@ -1,9 +1,6 @@
 package procedure01;
 
 public class HelloBiodome04 {
-    private double temperature;
-    private double humidity;
-    private double oxygen;
     private static final double BIONETTI_COEFFICIENT = 0.415;
     private static final double PIE = 3.14;
     public static void main(String[] args) {
@@ -16,32 +13,34 @@ public class HelloBiodome04 {
             return;
         }
 
-        HelloBiodome04 biodome = new HelloBiodome04();
+        double temperature;
+        double humidity;
+        double oxygen;
         try {
-            biodome.temperature = Double.parseDouble(args[0]);
-            biodome.humidity = Double.parseDouble(args[1]);
-            biodome.oxygen = Double.parseDouble(args[2]);
+            temperature = Double.parseDouble(args[0]);
+            humidity = Double.parseDouble(args[1]);
+            oxygen = Double.parseDouble(args[2]);
         } catch (NumberFormatException e) {
             System.out.println("잘못된 입력값을 입력하셨습니다.");
             return;
         }
 
-        if (!isValidTemperature(biodome.temperature)) {
+        if (!isValidTemperature(temperature)) {
             System.out.println("온도값이 정상 범위를 벗어났습니다.");
             return;
         }
-        if (!isValidHumidity(biodome.humidity)) {
+        if (!isValidHumidity(humidity)) {
             System.out.println("습도값이 정상 범위를 벗어났습니다.");
             return;
         }
-        if (!isValidOxygen(biodome.oxygen)) {
+        if (!isValidOxygen(oxygen)) {
             System.out.println("산소 농도값이 정상 범위를 벗어났습니다.");
             return;
         }
 
         System.out.println("생명의 나무는 안정적인 상태입니다.");
 
-        double H = getTree(biodome.temperature, biodome.humidity, biodome.oxygen);
+        double H = getTree(temperature, humidity, oxygen);
         String message = String.format("건강지수는 %.2f입니다.", H);
         System.out.println(message);
     }
