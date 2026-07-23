@@ -45,13 +45,15 @@ public class RoadToBiodome04 {
     }
     private static double[] selectionSort(double[] nums) {
         for(int i=0; i<nums.length; i++) {
-            for(int j=i; j<nums.length; j++) {
-                if (nums[i] > nums[j]) {
-                    double temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
+            int minIdx = i;
+            for(int j=i+1; j<nums.length; j++) {
+                if (nums[minIdx] > nums[j]) {
+                    minIdx = j;
                 }
             }
+            double temp = nums[i];
+            nums[i] = nums[minIdx];
+            nums[minIdx] = temp;
         }
         return nums;
     }
