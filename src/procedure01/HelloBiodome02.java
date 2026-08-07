@@ -38,8 +38,7 @@ public class HelloBiodome02 {
 
         String message = String.format("총 에너지 사용량은 %d 입니다.", sum);
         System.out.println(message);
-
-        double solarPercent = (double) solar / sum * 100;
+        double solarPercent = solar / (double)sum * 100;
         double windPercent = (double) wind / sum * 100;
         double earthPercent = (double) earth / sum * 100;
         String message2 = String.format("태양광 %.9f%%, 풍력 %.9f%%, 지열 %.9f%%", solarPercent, windPercent, earthPercent);

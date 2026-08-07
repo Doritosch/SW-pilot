@@ -12,9 +12,9 @@ public class HelloBiodome01 {
         System.out.println(name + "님, 환영합니다!");
 
         // 보너스 과제
-        //System.out.printf("\"%.10s\"님, 환영합니다!%n", name);
+        System.out.printf("\"%.10s\"님, 환영합니다!%n", name);
 
-        //String message = String.format("\"%.10s\"님, 환영합니다!", name);
-        //System.out.println(message);
+        String message = String.format("\"%.10s\"님, 환영합니다!", name);
+        System.out.println(message);
     }
 }
