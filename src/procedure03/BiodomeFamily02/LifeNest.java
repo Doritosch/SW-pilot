@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LifeNest {
-    List<Organism> organismList;
+    private List<Organism> organismList;
 
     public LifeNest() {
         this.organismList = new ArrayList<>();
